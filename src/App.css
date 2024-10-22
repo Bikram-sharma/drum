@@ -1,0 +1,131 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+}
+
+#drum-machine{
+  width: 50vw;
+  height: 45vh;
+  background-color: darkgray;
+  border: 4px solid orange;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+
+#drum-pads{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.drum-pad{
+  width: 90px;
+  height: 80px;
+  background-color:gray;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* .pads>a{
+  color:black;
+  pointer-events: none;
+} */
+
+#display{
+  width: 40%;
+  height: 100%;
+  /* background-color: blueviolet; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.power{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 25px;
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 10px;
+}
+
+.switch-bord{
+  width: 50px;
+  height: 20px;
+  background-color:rgb(17, 245, 55);
+  padding: 2px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.switch{
+  width: 25px;
+  height: 20px;
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px darkgreen;
+}
+
+
+.screen{
+  width: 200px;
+  height: 50px;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+}
+
+.volume{
+  appearance: none;
+  width: 200px;
+  height: 10px;
+  outline: none;
+  background-color: black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.bank{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 25px;
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 10px;
+}
+
+
+
+
+
+
+
