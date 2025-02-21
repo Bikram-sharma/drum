@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import '../App.css'
 
 function DrumMachine() {
@@ -60,26 +60,24 @@ function DrumMachine() {
 
     ]
 
-    const [Power, setPower] = useState(true);
+    const [Power, setPower] = useState('on');
     const [volume, setvolume] = useState(0.3)
 
 
     function togglePower(){
         
-         
-
         const position = document.querySelector('.switch-bord').style.justifyContent;
 
         if(position == 'end'){
 
             document.querySelector('.switch-bord').style.justifyContent = 'start';
             document.querySelector('.switch-bord').style.background='red' 
-            setPower(false)
+            setPower(null)
 
         }else{
             document.querySelector('.switch-bord').style.justifyContent = 'end';
             document.querySelector('.switch-bord').style.background='' 
-            setPower(true)
+            setPower('on')
         }
     }
 
@@ -92,7 +90,7 @@ function DrumMachine() {
 
     function sound(event){
 
-        if(Power){
+        if(Power == 'on'){
 
             document.getElementById(event.target.textContent).volume=volume
             document.getElementById(event.target.textContent).play()
@@ -121,46 +119,33 @@ function DrumMachine() {
 
     }
 
-    useCallback(
-
-        document.addEventListener('keypress', (e)=>{
-
+    const handleKeyPress = useCallback((e)=>{
+            
+        if(Power === 'on'){
             const id = e.key.toUpperCase();
             const target = document.getElementById(id);
+
+            if(!target) return;
+
             const pad = target.parentElement;
-           
-            if(Power){
-
-                  target.volume=volume
-                  target.play()
-                  pad.style.backgroundColor='orange'
-      
-      
-                  screenDisplayer(pad.id)
-      
+            target.volume=volume
+            target.play()
+            pad.style.backgroundColor='orange'
           
-              setTimeout(()=>{
-                  document.getElementById(id).parentElement.style.backgroundColor=''
-              },100)
-
-            };
+            screenDisplayer(pad.id)
           
-      
-        })
-    )
+            setTimeout(()=>{
+                      document.getElementById(id).parentElement.style.backgroundColor=''
+                  },100)
+        }
+    })
+
+    useEffect(() => {
+        document.addEventListener("keypress", handleKeyPress);
+        return () => document.removeEventListener("keypress", handleKeyPress);
+      }, [handleKeyPress]);
 
     
-
-   
-
-   
-
-
-
-    
-  
-
-
   return (
     <div id='drum-machine'>
         

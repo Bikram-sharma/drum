@@ -2,17 +2,19 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  background:url(https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size:cover;
 }
 
 #drum-machine{
   width: 50vw;
   height: 45vh;
-  background-color: darkgray;
-  border: 4px solid orange;
+  backdrop-filter:blur(30px);
+  box-shadow: inset 0px 0px 10px whitesmoke;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  border-radius: 10px;
 }
 
 
@@ -32,8 +34,9 @@ body{
 .drum-pad{
   width: 90px;
   height: 80px;
-  background-color:gray;
-  box-shadow: 5px 5px 5px black;
+  backdrop-filter:blur(10px);
+  box-shadow: inset 0px 0px 10px whitesmoke;
+  border-radius: 10px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -50,12 +53,12 @@ body{
 #display{
   width: 40%;
   height: 100%;
-  /* background-color: blueviolet; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 15px;
+
 }
 
 .power{
@@ -64,7 +67,6 @@ body{
   align-items: center;
   flex-direction: column;
   font-size: 25px;
-  color: black;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin: 10px;
 }
@@ -91,12 +93,13 @@ body{
 .screen{
   width: 200px;
   height: 50px;
-  background-color: gray;
+  backdrop-filter:blur(10px);
+  box-shadow: inset 0px 0px 10px whitesmoke;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  color: black;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 
@@ -107,7 +110,8 @@ body{
   width: 200px;
   height: 10px;
   outline: none;
-  background-color: black;
+  background-color:transparent;
+  border: 1px solid whitesmoke;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -121,6 +125,32 @@ body{
   color: black;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin: 10px;
+}
+
+
+@media (max-width: 1024px){
+  
+  #drum-machine{
+           width:fit-content; 
+           height:100vh;
+           flex-direction: column; 
+           flex-wrap: wrap;
+  }
+
+  #drum-pads,#display{
+    width: 100vw;
+    height: 50vh;
+  }
+
+  /* .drum-pad{
+         width: 60px;
+         height: 60px;
+  } */
+
+  .screen,.volume {
+        width: 150px;
+  }
+
 }
 
 
